@@ -269,20 +269,6 @@ inkos genre copy xuanhuan             # 复制内置到项目中定制
 
 **去 AI 味铁律** — 5 条硬性规则：禁止叙述者替读者下结论、禁止分析报告式语言（"核心动机""信息边界"等术语禁入正文）、AI 标记词（仿佛/忽然/竟然）限频每 3000 字 1 次、意象渲染限两轮、方法论术语隔离。每个题材还有专属语言铁律（带 ✗→✓ 示例）。
 
-**多 LLM 提供商支持** — 新增 Anthropic SDK 原生支持。`.env` 中设 `INKOS_LLM_PROVIDER=anthropic` 即可直连 Anthropic API，无需中转。同时支持 OpenAI、所有 OpenAI 兼容接口（中转站、本地模型等）。默认配置从 anthropic 改为 openai，修复了之前 `inkos init` 生成不兼容默认配置的 bug。
-
-```bash
-# OpenAI / 兼容接口
-INKOS_LLM_PROVIDER=openai
-INKOS_LLM_BASE_URL=https://api.openai.com/v1
-INKOS_LLM_MODEL=gpt-4o
-
-# Anthropic 原生
-INKOS_LLM_PROVIDER=anthropic
-INKOS_LLM_BASE_URL=https://api.anthropic.com
-INKOS_LLM_MODEL=claude-sonnet-4-5-20250514
-```
-
 **实测** — 3 个题材各跑 3 章验证：玄幻（数值追踪正常）、都市（无数值审计、年代考据启用）、恐怖（氛围递进、克制叙事）。审计结果确认题材错位消失、词汇疲劳检测 AI 标记词、文风评价从"AI味重"变成"场景落点具体"。
 
 ## 参与贡献
