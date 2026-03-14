@@ -124,10 +124,7 @@ describe("GenreSchema", () => {
     "xuanhuan",
     "xianxia",
     "urban",
-    "game",
-    "fanfic",
     "horror",
-    "short",
     "other",
   ] as const;
 

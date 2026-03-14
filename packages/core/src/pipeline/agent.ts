@@ -37,7 +37,7 @@ const TOOLS: ReadonlyArray<ToolDefinition> = [
       properties: {
         bookId: { type: "string", description: "书籍ID" },
         chapterNumber: { type: "number", description: "章节号（不填则修订最新章）" },
-        mode: { type: "string", enum: ["polish", "rewrite", "rework"], description: "修订模式（默认rewrite）" },
+        mode: { type: "string", enum: ["polish", "rewrite", "rework", "spot-fix", "anti-detect"], description: "修订模式（默认rewrite）" },
       },
       required: ["bookId"],
     },
@@ -57,7 +57,7 @@ const TOOLS: ReadonlyArray<ToolDefinition> = [
       type: "object",
       properties: {
         title: { type: "string", description: "书名" },
-        genre: { type: "string", enum: ["xuanhuan", "xianxia", "urban", "game", "fanfic", "horror", "short", "other"], description: "题材" },
+        genre: { type: "string", enum: ["xuanhuan", "xianxia", "urban", "horror", "other"], description: "题材" },
         platform: { type: "string", enum: ["tomato", "feilu", "qidian", "other"], description: "目标平台" },
         brief: { type: "string", description: "创作简述/需求（自然语言）" },
       },
@@ -138,17 +138,21 @@ export async function runAgentLoop(
 | read_truth_files | 读取长期记忆（状态卡、资源账本、伏笔池）和设定（世界观、卷纲、本书规则） |
 | create_book | 建书，生成世界观、卷纲、本书规则（自动加载题材 genre profile） |
 | write_draft | 写一章草稿（自动加载 genre profile + book_rules） |
-| audit_chapter | 审计章节（19维度，按题材条件启用） |
-| revise_chapter | 修订章节（支持 polish/rewrite/rework 三种模式） |
+| audit_chapter | 审计章节（27维度，按题材条件启用，含AI痕迹+敏感词检测） |
+| revise_chapter | 修订章节（支持 polish/rewrite/rework/spot-fix/anti-detect 五种模式） |
 | write_full_pipeline | 完整管线：写 → 审 → 改（如需要） |
 | scan_market | 扫描平台排行榜，分析市场趋势 |
 
 ## 长期记忆
 
-每本书有三个长期记忆文件，是 Agent 写作和审计的事实依据：
+每本书有七个长期记忆文件，是 Agent 写作和审计的事实依据：
 - **current_state.md** — 角色位置、关系、已知信息、当前冲突
 - **particle_ledger.md** — 物品/资源账本，每笔增减有据可查
 - **pending_hooks.md** — 已埋伏笔、推进状态、预期回收时机
+- **chapter_summaries.md** — 每章压缩摘要（人物、事件、伏笔、情绪）
+- **subplot_board.md** — 支线进度板
+- **emotional_arcs.md** — 角色情感弧线
+- **character_matrix.md** — 角色交互矩阵与信息边界
 
 ## 管线逻辑
 

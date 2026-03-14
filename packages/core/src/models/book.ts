@@ -7,10 +7,7 @@ export const GenreSchema = z.enum([
   "xuanhuan",
   "xianxia",
   "urban",
-  "game",
-  "fanfic",
   "horror",
-  "short",
   "other",
 ]);
 export type Genre = z.infer<typeof GenreSchema>;
