@@ -20,6 +20,34 @@
 
 Open-source multi-agent system that autonomously writes, audits, and revises novels — with human review gates that keep you in control.
 
+## v0.5 Update
+
+Web UI management interface.
+
+### packages/web — Visual Management Interface
+
+New `@actalk/inkos-web` package, built with Next.js 15 App Router + Tailwind CSS, covering four modules:
+
+| Page | Features |
+|------|----------|
+| `/books` | Book list in a grid layout: title, genre, platform, status badge, chapter count, total word count, progress bar |
+| `/books/new` | Create book form — on submit, the Architect agent auto-generates worldbuilding and outline |
+| `/books/[id]` | Book detail: overview stats, "Write Next Chapter" button, chapter table (with audit issue counts) |
+| `/radar` | Market radar: one-click RadarAgent scan, results displayed as recommendation cards (confidence, concept, benchmark titles) |
+| `/settings` | LLM config (Provider / Base URL / API Key / Model / Temperature / Max Tokens) + per-agent model routing override table |
+
+**Starting the dev server:**
+
+```bash
+cd packages/web
+INKOS_PROJECT_ROOT=/path/to/novel-project pnpm dev
+# Open http://localhost:3000
+```
+
+`INKOS_PROJECT_ROOT` points to the directory containing `inkos.json`. Defaults to `process.cwd()` if not set.
+
+---
+
 ## v0.4 Update
 
 Spinoff writing + style cloning + post-write validator + audit-revise hardening.
@@ -447,9 +475,12 @@ inkos/
 │   │   ├── llm/           # OpenAI + Anthropic dual SDK (streaming)
 │   │   ├── notify/        # Telegram, Feishu, WeCom, Webhook
 │   │   └── models/        # Zod schema validation
-│   └── cli/               # Commander.js CLI (20 commands)
-│       └── commands/      # init, book, write, draft, audit, revise, agent, review, detect, style...
-└── (planned) studio/      # Web UI for review and editing
+│   ├── cli/               # Commander.js CLI (20 commands)
+│   │   └── commands/      # init, book, write, draft, audit, revise, agent, review, detect, style...
+│   └── web/               # Next.js 15 Web UI (@actalk/inkos-web)
+│       ├── app/           # App Router pages + API Routes
+│       ├── components/    # nav, book-card, chapter-table, status-badge
+│       └── lib/           # pipeline.ts (PipelineRunner factory, reads INKOS_PROJECT_ROOT)
 ```
 
 TypeScript monorepo managed with pnpm workspaces.
@@ -478,7 +509,7 @@ TypeScript monorepo managed with pnpm workspaces.
 - [x] AIGC detection + anti-detect rewrite pipeline
 - [x] Webhook notifications + smart scheduler (quality gates)
 - [x] Cross-chapter coherence (chapter summaries + subplot/emotion/character matrices)
-- [ ] `packages/studio` Web UI for review and editing
+- [x] `packages/web` Web UI (book list / create / write / radar / settings)
 - [x] Multi-model routing (different models for different agents, `inkos config set-model`)
 - [ ] Custom agent plugin system
 - [ ] Platform-specific export (Qidian, Tomato, etc.)

@@ -20,6 +20,34 @@
 
 Agent 写小说。写、审、改，全程接管。
 
+## v0.5 更新
+
+Web UI 管理界面。
+
+### packages/web — 可视化管理界面
+
+新增 `@actalk/inkos-web`，基于 Next.js 15 App Router + Tailwind CSS，提供四个模块：
+
+| 页面 | 功能 |
+|------|------|
+| `/books` | 小说列表，网格卡片展示：书名、类型、平台、状态、章节数、总字数、进度条 |
+| `/books/new` | 创建小说表单，提交后由建筑师 agent 自动生成世界观和大纲 |
+| `/books/[id]` | 小说详情：概览数据、「写下一章」按钮、章节列表表格（含审计问题数） |
+| `/radar` | 站外热点：一键触发 RadarAgent 扫描，展示推荐卡片（置信度、创意概念、参考书目） |
+| `/settings` | LLM 配置（Provider / Base URL / API Key / 模型 / Temperature / Max Tokens）+ 每个 Agent 的模型路由覆盖表格 |
+
+**启动方式：**
+
+```bash
+cd packages/web
+INKOS_PROJECT_ROOT=/path/to/novel-project pnpm dev
+# 访问 http://localhost:3000
+```
+
+`INKOS_PROJECT_ROOT` 指向 `inkos.json` 所在目录，未设置时默认使用 `process.cwd()`。
+
+---
+
 ## v0.4 更新
 
 番外写作 + 文风仿写 + 写后验证器 + 审计闭环加固。
@@ -465,9 +493,12 @@ inkos/
 │   │   ├── llm/           # OpenAI + Anthropic 双 SDK 接口 (流式)
 │   │   ├── notify/        # Telegram, 飞书, 企业微信, Webhook
 │   │   └── models/        # Zod schema 校验
-│   └── cli/               # Commander.js 命令行 (20 条命令)
-│       └── commands/      # init, book, write, draft, audit, revise, agent, review, detect, style...
-└── (规划中) studio/        # 网页审阅编辑界面
+│   ├── cli/               # Commander.js 命令行 (20 条命令)
+│   │   └── commands/      # init, book, write, draft, audit, revise, agent, review, detect, style...
+│   └── web/               # Next.js 15 Web UI（@actalk/inkos-web）
+│       ├── app/           # App Router 页面 + API Routes
+│       ├── components/    # nav, book-card, chapter-table, status-badge
+│       └── lib/           # pipeline.ts（PipelineRunner 工厂，读 INKOS_PROJECT_ROOT）
 ```
 
 TypeScript 单仓库，pnpm workspaces 管理。
@@ -496,7 +527,7 @@ TypeScript 单仓库，pnpm workspaces 管理。
 - [x] 文风仿写（统计指纹 + LLM 风格指南 + 写手注入）
 - [x] 写后验证器（11 条硬规则 + 自动 spot-fix）
 - [x] 审计-修订闭环加固（AI 标记守卫 + 温度锁）
-- [ ] `packages/studio` Web UI 审阅编辑界面
+- [x] `packages/web` Web UI 管理界面（小说列表 / 创建 / 写章 / 热点 / 配置）
 - [x] 多模型路由（不同 agent 用不同模型，`inkos config set-model`）
 - [ ] 自定义 agent 插件系统
 - [ ] 平台格式导出（起点、番茄等）
