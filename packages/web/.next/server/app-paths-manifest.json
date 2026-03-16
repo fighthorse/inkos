@@ -1,0 +1,15 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/books/[id]/route": "app/api/books/[id]/route.js",
+  "/api/books/route": "app/api/books/route.js",
+  "/api/books/[id]/write/route": "app/api/books/[id]/write/route.js",
+  "/api/radar/scan/route": "app/api/radar/scan/route.js",
+  "/api/radar/route": "app/api/radar/route.js",
+  "/api/settings/route": "app/api/settings/route.js",
+  "/books/new/page": "app/books/new/page.js",
+  "/page": "app/page.js",
+  "/settings/page": "app/settings/page.js",
+  "/books/[id]/page": "app/books/[id]/page.js",
+  "/books/page": "app/books/page.js",
+  "/radar/page": "app/radar/page.js"
+}

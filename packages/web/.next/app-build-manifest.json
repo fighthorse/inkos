@@ -1,0 +1,107 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-95f7d13cd80addd3.js",
+      "static/chunks/8e6518bb-c26e82767f1faf66.js",
+      "static/chunks/743-33720d133c383396.js",
+      "static/chunks/main-app-da17450e93d866a9.js",
+      "static/chunks/app/_not-found/page-d903e99b845493ae.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-95f7d13cd80addd3.js",
+      "static/chunks/8e6518bb-c26e82767f1faf66.js",
+      "static/chunks/743-33720d133c383396.js",
+      "static/chunks/main-app-da17450e93d866a9.js",
+      "static/css/d256eba4e61c73c7.css",
+      "static/chunks/961-ed5349eee4a7a9ab.js",
+      "static/chunks/935-dff12960528de017.js",
+      "static/chunks/app/layout-40565e655812d7f1.js"
+    ],
+    "/api/books/[id]/route": [
+      "static/chunks/webpack-95f7d13cd80addd3.js",
+      "static/chunks/8e6518bb-c26e82767f1faf66.js",
+      "static/chunks/743-33720d133c383396.js",
+      "static/chunks/main-app-da17450e93d866a9.js",
+      "static/chunks/app/api/books/[id]/route-e01adf73644f6a31.js"
+    ],
+    "/api/books/route": [
+      "static/chunks/webpack-95f7d13cd80addd3.js",
+      "static/chunks/8e6518bb-c26e82767f1faf66.js",
+      "static/chunks/743-33720d133c383396.js",
+      "static/chunks/main-app-da17450e93d866a9.js",
+      "static/chunks/app/api/books/route-e01adf73644f6a31.js"
+    ],
+    "/api/books/[id]/write/route": [
+      "static/chunks/webpack-95f7d13cd80addd3.js",
+      "static/chunks/8e6518bb-c26e82767f1faf66.js",
+      "static/chunks/743-33720d133c383396.js",
+      "static/chunks/main-app-da17450e93d866a9.js",
+      "static/chunks/app/api/books/[id]/write/route-e01adf73644f6a31.js"
+    ],
+    "/api/radar/scan/route": [
+      "static/chunks/webpack-95f7d13cd80addd3.js",
+      "static/chunks/8e6518bb-c26e82767f1faf66.js",
+      "static/chunks/743-33720d133c383396.js",
+      "static/chunks/main-app-da17450e93d866a9.js",
+      "static/chunks/app/api/radar/scan/route-e01adf73644f6a31.js"
+    ],
+    "/api/radar/route": [
+      "static/chunks/webpack-95f7d13cd80addd3.js",
+      "static/chunks/8e6518bb-c26e82767f1faf66.js",
+      "static/chunks/743-33720d133c383396.js",
+      "static/chunks/main-app-da17450e93d866a9.js",
+      "static/chunks/app/api/radar/route-e01adf73644f6a31.js"
+    ],
+    "/api/settings/route": [
+      "static/chunks/webpack-95f7d13cd80addd3.js",
+      "static/chunks/8e6518bb-c26e82767f1faf66.js",
+      "static/chunks/743-33720d133c383396.js",
+      "static/chunks/main-app-da17450e93d866a9.js",
+      "static/chunks/app/api/settings/route-e01adf73644f6a31.js"
+    ],
+    "/books/new/page": [
+      "static/chunks/webpack-95f7d13cd80addd3.js",
+      "static/chunks/8e6518bb-c26e82767f1faf66.js",
+      "static/chunks/743-33720d133c383396.js",
+      "static/chunks/main-app-da17450e93d866a9.js",
+      "static/chunks/app/books/new/page-478b7753241b6d86.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-95f7d13cd80addd3.js",
+      "static/chunks/8e6518bb-c26e82767f1faf66.js",
+      "static/chunks/743-33720d133c383396.js",
+      "static/chunks/main-app-da17450e93d866a9.js",
+      "static/chunks/app/page-e01adf73644f6a31.js"
+    ],
+    "/settings/page": [
+      "static/chunks/webpack-95f7d13cd80addd3.js",
+      "static/chunks/8e6518bb-c26e82767f1faf66.js",
+      "static/chunks/743-33720d133c383396.js",
+      "static/chunks/main-app-da17450e93d866a9.js",
+      "static/chunks/app/settings/page-69d9128d8037c8c1.js"
+    ],
+    "/books/[id]/page": [
+      "static/chunks/webpack-95f7d13cd80addd3.js",
+      "static/chunks/8e6518bb-c26e82767f1faf66.js",
+      "static/chunks/743-33720d133c383396.js",
+      "static/chunks/main-app-da17450e93d866a9.js",
+      "static/chunks/961-ed5349eee4a7a9ab.js",
+      "static/chunks/app/books/[id]/page-df33d36845701528.js"
+    ],
+    "/books/page": [
+      "static/chunks/webpack-95f7d13cd80addd3.js",
+      "static/chunks/8e6518bb-c26e82767f1faf66.js",
+      "static/chunks/743-33720d133c383396.js",
+      "static/chunks/main-app-da17450e93d866a9.js",
+      "static/chunks/935-dff12960528de017.js",
+      "static/chunks/app/books/page-ce52eec36be22382.js"
+    ],
+    "/radar/page": [
+      "static/chunks/webpack-95f7d13cd80addd3.js",
+      "static/chunks/8e6518bb-c26e82767f1faf66.js",
+      "static/chunks/743-33720d133c383396.js",
+      "static/chunks/main-app-da17450e93d866a9.js",
+      "static/chunks/app/radar/page-b79f25c25a3b387f.js"
+    ]
+  }
+}
